@@ -169,7 +169,4 @@
     -- no-op
   {%- endcall %}
 
-  -- Return the relations created in this materialization
-  {{ return({'relations': [target_relation]}) }}  
-
 {%- endmaterialization %}

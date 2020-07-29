@@ -36,7 +36,6 @@ Arguments:
   {%- do table_columns.update({relation: []}) %}
 
   {%- do dbt_utils._is_relation(relation, 'unpivot') -%}
-  {%- do dbt_utils._is_ephemeral(relation, 'unpivot') -%}
   {%- set cols = adapter.get_columns_in_relation(relation) %}
 
   {%- for col in cols -%}

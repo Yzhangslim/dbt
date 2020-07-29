@@ -37,7 +37,6 @@ Arguments:
     then_value: Value to use if comparison succeeds, default is 1
     else_value: Value to use if comparison fails, default is 0
     quote_identifiers: Whether to surround column aliases with double quotes, default is true
-    distinct: Whether to use distinct in the aggregation, default is False
 #}
 
 {% macro pivot(column,
@@ -49,11 +48,9 @@ Arguments:
                suffix='',
                then_value=1,
                else_value=0,
-               quote_identifiers=True,
-               distinct=False) %}
+               quote_identifiers=True) %}
   {% for v in values %}
     {{ agg }}(
-      {% if distinct %} distinct {% endif %}
       case
       when {{ column }} {{ cmp }} '{{ v }}'
         then {{ then_value }}

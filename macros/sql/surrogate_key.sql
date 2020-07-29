@@ -1,6 +1,7 @@
 {%- macro surrogate_key(field_list) -%}
 
-{%- if varargs|length >= 1 or field_list is string %}
+
+{%- if varargs|length >= 1 %}
 
 {%- do exceptions.warn("Warning: the `surrogate_key` macro now takes a single list argument instead of multiple string arguments. Support for multiple string arguments will be deprecated in a future release of dbt-utils.") -%}
 
